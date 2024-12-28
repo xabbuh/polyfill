@@ -631,8 +631,6 @@ class MbstringTest extends TestCase
     /**
      * @covers \Symfony\Polyfill\Mbstring\Mbstring::mb_str_pad
      *
-     * @dataProvider paddingStringProvider
-     * @dataProvider paddingEmojiProvider
      * @dataProvider paddingEncodingProvider
      */
     public function testMbStrPad(string $expectedResult, string $string, int $length, string $padString, int $padType, ?string $encoding = null)

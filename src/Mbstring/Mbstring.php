@@ -514,12 +514,15 @@ final class Mbstring
 
     public static function mb_strlen($s, $encoding = null)
     {
+        var_dump(__METHOD__);
+        var_dump($encoding);
         $encoding = self::getEncoding($encoding);
+        var_dump($encoding);
         if ('CP850' === $encoding || 'ASCII' === $encoding) {
             return \strlen($s);
         }
 
-        return @iconv_strlen($s, $encoding);
+        return iconv_strlen($s, $encoding);
     }
 
     public static function mb_strpos($haystack, $needle, $offset = 0, $encoding = null)
@@ -847,6 +850,8 @@ final class Mbstring
         }
 
         if (self::mb_strlen($pad_string, $encoding) <= 0) {
+            var_dump($pad_string);
+            var_dump($encoding);
             throw new \ValueError('mb_str_pad(): Argument #3 ($pad_string) must be a non-empty string');
         }
 
